@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CarClientService} from '../../services/car-client.service';
+import {Car} from '../../car';
+import {HttpClient} from '@angular/common/http';
+
 
 
 @Component({
@@ -9,24 +12,19 @@ import {CarClientService} from '../../services/car-client.service';
 })
 export class CarApiComponent implements OnInit {
 
-  messageForUser: string;
-  id: number;
-  mark: string;
-  model: string;
-  color: string;
-  productionYear: number;
-
-  constructor(public carClientService: CarClientService) { }
+  car: Car[];
+  constructor(public http: HttpClient, public carClientService: CarClientService) { }
 
   ngOnInit(): void {
+    this.getCarList();
   }
-
-  addCar(id: number, mark: string, model: string, color: string, productionYear: number): void {
-  this.id = id;
-  this.mark = mark;
-  this.model = model;
-  this.color = color;
-  this.productionYear = productionYear;
-  this.messageForUser = 'Car added:';
+  // tslint:disable-next-line:typedef
+  getCarList() {
+    this.carClientService
+      .getCars()
+      .subscribe((data: any) => {
+        console.log(data);
+        this.car = data.data;
+      });
   }
 }
