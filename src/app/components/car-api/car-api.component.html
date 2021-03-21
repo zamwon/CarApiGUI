@@ -1,0 +1,36 @@
+<p>car-api works!</p>
+
+<p>ID</p>
+<input type="number" ng-model="theValue" name="theValue" step="1" min="1"  ng-pattern="integerval" required #id>
+<p>Mark</p>
+<input type="text" #mark>
+<p>Model</p>
+<input type="text" #model>
+<p>Color</p>
+<input type="text" #color>
+<p>Production year</p>
+<input type="number" ng-model="theValue" name="theValue" step="1" min="1886" max="2021"  ng-pattern="integerval" required  #prodYear>
+<br><br><br>
+<button (click)="addCar(id.value, mark.value, model.value, color.value, prodYear.value)">Add car</button>
+
+
+<p>----------------------------</p>
+<p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Mark</th>
+    <th>Model</th>
+    <th>Color</th>
+    <th>Production year</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let car of carClientService.getCars()">
+    <td>{{car}}</td>
+    <td>{{car}}</td>
+    <td>{{car}}</td>
+  </tr>
+  </tbody>
+</table>
