@@ -1,23 +1,25 @@
 import {Injectable} from '@angular/core';
-import {Car} from '../car';
 import {HttpClient} from '@angular/common/http';
-import {throwError} from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+
 
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class CarClientService {
 
-    constructor(private httpClient: HttpClient) {}
-    public getCars() {
-        return this.httpClient.get('http://localhost:8080/cars').pipe(map((data: Car[]) => {
-            return data;
-        }), catchError(error => {
-            return throwError('Something went wrong!');
-        }));
-    }
+  constructor(private httpClient: HttpClient) {
+  }
+
+  public getCars(): Observable<Car[]> {
+    return this.httpClient.get<Car[]>('http://localhost:8080/cars');
+  }
 }
-
-
+export interface Car{
+  carId: number;
+  mark: string;
+  model: string;
+  color: string;
+  productionYear: number;
+}
