@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import {Car, CarClientService} from '../../services/car-client.service';
 
 @Component({
-  selector: 'app-car-api',
-  templateUrl: './car-api.component.html',
-  styleUrls: ['./car-api.component.css']
+  selector: 'app-car-get',
+  templateUrl: './car-get.component.html',
+  styleUrls: ['./car-get.component.css']
 })
-export class CarApiComponent implements OnInit {
+export class CarGetComponent implements OnInit {
 
-  car: Car[];
+  cars: Car[];
   constructor(private carClientService: CarClientService) { }
 
   ngOnInit(): void {
     this.carClientService.getCars().subscribe(value =>
-    this.car = value);
+    this.cars = value);
   }
 }

@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { CarApiComponent } from './components/car-api/car-api.component';
+import { CarGetComponent } from './components/car-get/car-get.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddCarComponent } from './components/add-car/add-car.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarApiComponent
+    CarGetComponent,
+    AddCarComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

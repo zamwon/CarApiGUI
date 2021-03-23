@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CarApiComponent } from './car-api.component';
+import { CarGetComponent } from './car-get.component';
 
 describe('CarApiComponent', () => {
-  let component: CarApiComponent;
-  let fixture: ComponentFixture<CarApiComponent>;
+  let component: CarGetComponent;
+  let fixture: ComponentFixture<CarGetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CarApiComponent ]
+      declarations: [ CarGetComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CarApiComponent);
+    fixture = TestBed.createComponent(CarGetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
