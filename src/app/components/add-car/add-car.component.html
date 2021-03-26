@@ -1,0 +1,29 @@
+======================================
+<p></p>
+ADD CAR HERE
+
+<p>Insert ID</p>
+<label>
+  <input type="number" #idInput>
+</label>
+<p>Insert mark</p>
+<label>
+  <input type="text" #markInput>
+</label>
+<p>Insert model</p>
+<label>
+  <input type="text" #modelInput>
+</label>
+<p>Insert color</p>
+<label>
+  <input type="text" #colorInput>
+</label>
+<p>Insert production year</p>
+<label>
+  <input type="number" #prodYearInput>
+</label>
+<p></p>
+<button (click)="carClientService
+  .addCar(createCar(+(idInput.value), markInput.value, modelInput.value, colorInput.value, +(prodYearInput.value)))"
+>Click to add car</button>
+//TODO subscribe zeby poszło do bazy
