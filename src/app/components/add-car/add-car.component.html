@@ -1,6 +1,6 @@
 ======================================
 <p></p>
-ADD CAR HERE
+ADD CAR !
 
 <p>Insert ID</p>
 <label>
@@ -23,7 +23,6 @@ ADD CAR HERE
   <input type="number" #prodYearInput>
 </label>
 <p></p>
-<button (click)="carClientService
-  .addCar(createCar(+(idInput.value), markInput.value, modelInput.value, colorInput.value, +(prodYearInput.value)))"
+<button (click)="carClientService.addCar(createCar(+(idInput.value), markInput.value, modelInput.value, colorInput.value, +(prodYearInput.value)))"
 >Click to add car</button>
 //TODO subscribe zeby poszło do bazy

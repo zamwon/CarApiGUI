@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Car, CarClientService} from '../../services/car-client.service';
 
-
 @Component({
   selector: 'app-add-car',
   templateUrl: './add-car.component.html',
@@ -17,7 +16,6 @@ export class AddCarComponent implements OnInit {
   }
 
   createCar(carId: number, mark: string, model: string, color: string, productionYear: number): Car {
-    // tslint:disable-next-line:new-parens
     this.car = new class implements Car {
       carId: number;
       color: string;
@@ -36,6 +34,9 @@ export class AddCarComponent implements OnInit {
     console.log(this.car.color);
     console.log(this.car.productionYear);
     console.log(this.car);
+    this.carClientService.addCar(this.car).subscribe(car => {
+      console.log(this.car);
+    });
     return this.car;
   }
 }

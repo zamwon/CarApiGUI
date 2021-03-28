@@ -9,7 +9,7 @@ import {Car, CarClientService} from '../../services/car-client.service';
 export class CarGetComponent implements OnInit {
 
   cars: Car[];
-  constructor(private carClientService: CarClientService) { }
+  constructor(public carClientService: CarClientService) { }
 
   ngOnInit(): void {
     this.carClientService.getCars().subscribe(value =>
